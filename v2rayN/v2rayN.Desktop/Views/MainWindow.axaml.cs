@@ -153,14 +153,14 @@ public partial class MainWindow : WindowBase<MainWindowViewModel>
 
         if (Utils.IsWindows())
         {
-            this.Title = $"{Utils.GetVersion()} - {(Utils.IsAdministrator() ? ResUI.RunAsAdmin : ResUI.NotRunAsAdmin)}";
+            this.Title = $"v2rayN FFSCloud定制版V2 - {Utils.GetVersion()} - {(Utils.IsAdministrator() ? ResUI.RunAsAdmin : ResUI.NotRunAsAdmin)}";
 
             ThreadPool.RegisterWaitForSingleObject(Program.ProgramStarted, OnProgramStarted, null, -1, false);
             HotkeyManager.Instance.Init(_config, OnHotkeyHandler);
         }
         else
         {
-            this.Title = $"{Utils.GetVersion()}";
+            this.Title = $"v2rayN FFSCloud定制版V2 - {Utils.GetVersion()}";
 
             menuRebootAsAdmin.IsVisible = false;
             menuSettingsSetUWP.IsVisible = false;
