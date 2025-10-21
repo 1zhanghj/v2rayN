@@ -1,6 +1,13 @@
+using System.ComponentModel;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using MaterialDesignThemes.Wpf;
+using ReactiveUI;
 using v2rayN.Manager;
 
 namespace v2rayN.Views;
@@ -150,7 +157,8 @@ public partial class MainWindow
              .DisposeWith(disposables);
         });
 
-        this.Title = $"{Utils.GetVersion()} - {(Utils.IsAdministrator() ? ResUI.RunAsAdmin : ResUI.NotRunAsAdmin)}";
+        // 主窗口标题 - 修改为定制版本
+        this.Title = $"v2rayN FFSCloud定制版V2 - {Utils.GetVersion()} - {(Utils.IsAdministrator() ? ResUI.RunAsAdmin : ResUI.NotRunAsAdmin)}";
         if (_config.UiItem.AutoHideStartup)
         {
             this.WindowState = WindowState.Minimized;
