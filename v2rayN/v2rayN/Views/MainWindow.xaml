@@ -1,3 +1,21 @@
+<!-- 
+    v2rayN 主窗口界面修改
+    修改日期：2025-10-21
+    修改内容：
+    1. 隐藏工具栏中的三个菜单按钮
+       - 检查更新菜单 (menuCheckUpdate) - 第249-265行
+       - 帮助菜单 (menuHelp) - 第267-283行  
+       - 推广菜单 (menuPromotion) - 第285-301行
+       修改方法：为这三个菜单的 Menu 控件添加 Visibility="Collapsed" 属性
+    
+    2. 修改主窗口标题栏显示
+       - 主窗口标题 (Title属性) - 第25行
+       - 原标题："v2rayN" -> 新标题："v2rayN FFSCloud定制版V2"
+       - 修改方法：直接修改 Window 的 Title 属性值
+    
+    修改原因：用户要求隐藏工具栏按钮并自定义软件标题
+    注意：此修改仅涉及界面显示，不影响后台功能逻辑
+-->
 <base:WindowBase
     x:Class="v2rayN.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -10,7 +28,7 @@
     xmlns:resx="clr-namespace:ServiceLib.Resx;assembly=ServiceLib"
     xmlns:view="clr-namespace:v2rayN.Views"
     xmlns:vms="clr-namespace:ServiceLib.ViewModels;assembly=ServiceLib"
-    Title="v2rayN"
+    Title="v2rayN FFSCloud定制版V2"
     Width="900"
     Height="700"
     MinWidth="900"
@@ -45,7 +63,7 @@
                         KeyboardNavigation.TabNavigation="Continue"
                         Style="{StaticResource MaterialDesignToolBar}">
                         <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
-                            <MenuItem Padding="{StaticResource MarginLeftRight8}" AutomationProperties.Name="{x:Static resx:ResUI.menuServers}">
+                            <MenuItem Padding="8,0" AutomationProperties.Name="{x:Static resx:ResUI.menuServers}">
                                 <MenuItem.Header>
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon
@@ -125,7 +143,7 @@
                         </Menu>
                         <Separator />
                         <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
-                            <MenuItem Padding="{StaticResource MarginLeftRight8}" AutomationProperties.Name="{x:Static resx:ResUI.menuSubscription}">
+                            <MenuItem Padding="8,0" AutomationProperties.Name="{x:Static resx:ResUI.menuSubscription}">
                                 <MenuItem.Header>
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon
@@ -160,7 +178,7 @@
                         </Menu>
                         <Separator />
                         <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
-                            <MenuItem Padding="{StaticResource MarginLeftRight8}" AutomationProperties.Name="{x:Static resx:ResUI.menuSetting}">
+                            <MenuItem Padding="8,0" AutomationProperties.Name="{x:Static resx:ResUI.menuSetting}">
                                 <MenuItem.Header>
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon
@@ -232,7 +250,7 @@
                         <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
                             <MenuItem
                                 x:Name="menuReload"
-                                Padding="{StaticResource MarginLeftRight8}"
+                                Padding="8,0"
                                 AutomationProperties.Name="{x:Static resx:ResUI.menuReload}">
                                 <MenuItem.Header>
                                     <StackPanel Orientation="Horizontal">
@@ -246,10 +264,11 @@
                             </MenuItem>
                         </Menu>
                         <Separator />
-                        <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
+                        <!-- 隐藏检查更新菜单 - 用户要求隐藏此按钮 -->
+                        <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}" Visibility="Collapsed">
                             <MenuItem
                                 Name="menuCheckUpdate"
-                                Padding="{StaticResource MarginLeftRight8}"
+                                Padding="8,0"
                                 AutomationProperties.Name="{x:Static resx:ResUI.menuCheckUpdate}">
                                 <MenuItem.Header>
                                     <StackPanel Orientation="Horizontal">
@@ -263,10 +282,11 @@
                             </MenuItem>
                         </Menu>
                         <Separator />
-                        <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
+                        <!-- 隐藏帮助菜单 - 用户要求隐藏此按钮 -->
+                        <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}" Visibility="Collapsed">
                             <MenuItem
                                 x:Name="menuHelp"
-                                Padding="{StaticResource MarginLeftRight8}"
+                                Padding="8,0"
                                 AutomationProperties.Name="{x:Static resx:ResUI.menuHelp}">
                                 <MenuItem.Header>
                                     <StackPanel Orientation="Horizontal">
@@ -280,10 +300,11 @@
                             </MenuItem>
                         </Menu>
                         <Separator />
-                        <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
+                        <!-- 隐藏推广菜单 - 用户要求隐藏此按钮 -->
+                        <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}" Visibility="Collapsed">
                             <MenuItem
                                 x:Name="menuPromotion"
-                                Padding="{StaticResource MarginLeftRight8}"
+                                Padding="8,0"
                                 AutomationProperties.Name="{x:Static resx:ResUI.menuPromotion}">
                                 <MenuItem.Header>
                                     <StackPanel Orientation="Horizontal">
@@ -300,7 +321,7 @@
                         <Menu Margin="0,1" Style="{StaticResource ToolbarMenu}">
                             <MenuItem
                                 x:Name="menuClose"
-                                Padding="{StaticResource MarginLeftRight8}"
+                                Padding="8,0"
                                 AutomationProperties.Name="{x:Static resx:ResUI.menuClose}">
                                 <MenuItem.Header>
                                     <StackPanel Orientation="Horizontal">
